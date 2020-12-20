@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<style>
+    .container {
+        width: 500px;
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .taskListWrapper {
+        display: inline-block;
+    }
+
+    button {
+        margin-top: 20px;
+    }
+</style>
+<body>
+    <div id='app' class='container'>
+        <div class='taskListWrapper'>
+            <h3>List "To Do"</h3>
+            <ul class='list'>
+                <li v-for='task in tasksList1' v-show='task.name' >
+                    {{ task.name }}
+                </li>  
+            </ul>
+            <button @click='moveTaskList1()'>Transfer to "Done"</button> 
+        </div>
+        <div class='taskListWrapper'>
+            <h3>List "Done"</h3>
+            <ul class='list'>
+                <li v-for='task in tasksList2' v-show='task.name' >
+                    {{ task.name }}
+                </li> 
+            </ul>
+            <button @click='moveTaskList2()'>Transfer to "To Do"/button>  
+        </div>
+    </div>
+    
+</body>
+<script src='./main.js'></script>
+</html>
